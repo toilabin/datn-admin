@@ -48,6 +48,38 @@ const _nav = [
     to: '/employees',
     icon: <CIcon icon={cilCursor} customClassName="nav-icon" />,
   },
+  {
+    component: CNavTitle,
+    name: 'Offers',
+  },
+  {
+    component: CNavItem,
+    name: 'Vouchers',
+    to: '/vouchers',
+    icon: <CIcon icon={cilCursor} customClassName="nav-icon" />,
+  },
+  {
+    component: CNavItem,
+    name: 'Discounts',
+    to: '/discounts',
+    icon: <CIcon icon={cilCursor} customClassName="nav-icon" />,
+  },
+  {
+    component: CNavTitle,
+    name: 'Orders',
+  },
+  {
+    component: CNavItem,
+    name: 'Orders acception',
+    to: '/orders',
+    icon: <CIcon icon={cilCursor} customClassName="nav-icon" />,
+  },
+  {
+    component: CNavItem,
+    name: 'Create order',
+    to: '/create',
+    icon: <CIcon icon={cilCursor} customClassName="nav-icon" />,
+  },
 ]
 
 export default _nav

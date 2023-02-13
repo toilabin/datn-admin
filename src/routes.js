@@ -24,6 +24,12 @@ const Tooltips = React.lazy(() => import('./views/base/tooltips/Tooltips'))
 const Customers = React.lazy(() => import('./views/users/customers/Customers'))
 const Employees = React.lazy(() => import('./views/users/employees/Employees'))
 
+//Offers
+const Vouchers = React.lazy(() => import('./views/offers/vouchers'))
+const Discounts = React.lazy(() => import('./views/offers/discounts'))
+const Orders = React.lazy(() => import('./views/offers/orders'))
+const CreateOrder = React.lazy(() => import('./views/offers/createOrder'))
+
 // Buttons
 const Buttons = React.lazy(() => import('./views/buttons/buttons/Buttons'))
 const ButtonGroups = React.lazy(() => import('./views/buttons/button-groups/ButtonGroups'))
@@ -81,6 +87,10 @@ const routes = [
   { path: '/sales', name: 'Sales', element: Sales },
   { path: '/customers', name: 'Customers', element: Customers },
   { path: '/employees', name: 'Employees', element: Employees },
+  { path: '/vouchers', name: 'Vouchers', element: Vouchers },
+  { path: '/discounts', name: 'Discounts', element: Discounts },
+  { path: '/orders', name: 'Orders', element: Orders },
+  { path: '/create', name: 'CreateOrder', element: CreateOrder },
   { path: '/forms', name: 'Forms', element: FormControl, exact: true },
   { path: '/forms/form-control', name: 'Form Control', element: FormControl },
   { path: '/forms/select', name: 'Select', element: Select },
