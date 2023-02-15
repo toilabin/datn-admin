@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 import {
   CAvatar,
@@ -53,12 +53,12 @@ import avatar3 from 'src/assets/images/avatars/blank.jpg'
 import avatar4 from 'src/assets/images/avatars/blank.jpg'
 import avatar5 from 'src/assets/images/avatars/blank.jpg'
 import avatar6 from 'src/assets/images/avatars/blank.jpg'
-import { Row, Col, Container, Image, Button } from 'react-bootstrap'
-import WidgetsBrand from '../../widgets/WidgetsBrand'
-import WidgetsDropdown from '../../widgets/WidgetsDropdown'
+import { Modal, Button, Table } from 'react-bootstrap'
 
 const Navs = () => {
   const random = (min, max) => Math.floor(Math.random() * (max - min + 1) + min)
+
+  const [modalShow, setModalShow] = useState(false);
 
   const progressExample = [
     { title: 'Visits', value: '29.703 Users', percent: 40, color: 'success' },
@@ -158,6 +158,73 @@ const Navs = () => {
   ]
   return (
     <CRow>
+        <Modal
+          show={modalShow}
+          onHide={() => setModalShow(false)}
+          backdrop="static"
+          keyboard={false}
+        >
+          <Modal.Header closeButton>
+            <Modal.Title>Schedule</Modal.Title>
+          </Modal.Header>
+          <Modal.Body>
+            <Table striped bordered hover>
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>9h - 12h</th>
+                  <th>13h - 16h</th>
+                  <th>17h - 21h</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Mon</td>
+                  <td>Emp1</td>
+                  <td>Emp2</td>
+                  <td>Emp3</td>
+                </tr>
+                <tr>
+                  <td>Tue</td>
+                  <td>Emp1</td>
+                  <td>Emp2</td>
+                  <td>Emp3</td>
+                </tr>
+                <tr>
+                  <td>Wed</td>
+                  <td>Emp1</td>
+                  <td>Emp2</td>
+                  <td>Emp3</td>
+                </tr>
+                <tr>
+                  <td>Thu</td>
+                  <td>Emp1</td>
+                  <td>Emp2</td>
+                  <td>Emp3</td>
+                </tr>
+                <tr>
+                  <td>Fri</td>
+                  <td>Emp1</td>
+                  <td>Emp2</td>
+                  <td>Emp3</td>
+                </tr>
+                <tr>
+                  <td>Sat</td>
+                  <td>Emp1</td>
+                  <td>Emp2</td>
+                  <td>Emp3</td>
+                </tr>
+              </tbody>
+            </Table>
+          </Modal.Body>
+          <Modal.Footer>
+            <Button variant="secondary" onClick={() => setModalShow(false)}>
+              Close
+            </Button>
+            <Button variant="primary">Accept</Button>
+          </Modal.Footer>
+        </Modal>
+
         <CCol xs>
           <CCard className="mb-4">
             <CCardHeader>Employees</CCardHeader>
@@ -192,7 +259,7 @@ const Navs = () => {
                       <CTableDataCell>{item.username.name}
                       </CTableDataCell>
                       <CTableDataCell className="text-center">
-                        <Link>{item.schedule}</Link>
+                        <div onClick={() => setModalShow(true)} style={{color: 'blue', textDecoration: 'underline', cursor: 'pointer'}}>{item.schedule}</div>
                         {/* <CProgress thin color={item.usage.color} value={item.usage.value} /> */}
                       </CTableDataCell>
                       <CTableDataCell className="text-center">
