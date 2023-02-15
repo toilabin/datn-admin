@@ -9,6 +9,8 @@ import {
   CCardFooter,
   CCardHeader,
   CCol,
+  CForm,
+  CFormInput,
   CProgress,
   CRow,
   CTable,
@@ -21,7 +23,7 @@ import {
 import { CChartLine } from '@coreui/react-chartjs'
 import { getStyle, hexToRgba } from '@coreui/utils'
 import CIcon from '@coreui/icons-react'
-import { Link } from 'react-router-dom'
+import { Form, Link } from 'react-router-dom'
 import {
   cibCcAmex,
   cibCcApplePay,
@@ -46,6 +48,8 @@ import {
   cilPencil,
   cilTrash,
   cilObjectGroup,
+  cilLibraryAdd,
+  cilFilterSquare,
 } from '@coreui/icons'
 
 import avatar1 from 'src/assets/images/avatars/blank.jpg'
@@ -95,184 +99,118 @@ const Navs = () => {
     {
       avatar: { src: avatar1, status: 'success' },
       user: {
-        name: 'Thái Đình Khả',
+        name: 'Watch 1',
         new: true,
         registered: 'Jan 1, 2021',
       },
-      username: { name: 'Kha123USA', flag: cifUs },
-      usage: {
-        value: 50,
-        period: 'Jun 11, 2021 - Jul 10, 2021',
-        color: 'success',
-      },
-      payment: { name: 'Gold', icon: cibCcMastercard },
-      activity: '10 sec ago',
+      id: '123456789',
+      cost: '250$',
+      quan: '10',
+      price: '300$',
     },
     {
       avatar: { src: avatar2, status: 'danger' },
       user: {
-        name: 'Thái Đình Khả',
+        name: 'Watch 2',
         new: false,
         registered: 'Jan 1, 2021',
       },
-      username: { name: 'Kha123Brazil', flag: cifBr },
-      usage: {
-        value: 22,
-        period: 'Jun 11, 2021 - Jul 10, 2021',
-        color: 'info',
-      },
-      payment: { name: 'Gold', icon: cibCcVisa },
-      activity: '5 minutes ago',
+      id: '123456789',
+      cost: '250$',
+      quan: '20',
+      price: '200$',
     },
     {
       avatar: { src: avatar3, status: 'warning' },
-      user: { name: 'Thái Đình Khả', new: true, registered: 'Jan 1, 2021' },
-      username: { name: 'Kha123India', flag: cifIn },
-      usage: {
-        value: 74,
-        period: 'Jun 11, 2021 - Jul 10, 2021',
-        color: 'warning',
-      },
-      payment: { name: 'Silver', icon: cibCcStripe },
-      activity: '1 hour ago',
+      user: { name: 'Watch 3', new: true, registered: 'Jan 1, 2021' },
+      id: '123456789',
+      cost: '250$',
+      quan: '30',
+      price: '300$',
     },
     {
       avatar: { src: avatar4, status: 'secondary' },
-      user: { name: 'Thái Đình Khả', new: true, registered: 'Jan 1, 2021' },
-      username: { name: 'Kha123France', flag: cifFr },
-      usage: {
-        value: 98,
-        period: 'Jun 11, 2021 - Jul 10, 2021',
-        color: 'danger',
-      },
-      payment: { name: 'Silver', icon: cibCcPaypal },
-      activity: 'Last month',
+      user: { name: 'Watch 4', new: true, registered: 'Jan 1, 2021' },
+      id: '123456789',
+      cost: '250$',
+      quan: '40',
+      price: '400$',
     },
     {
       avatar: { src: avatar5, status: 'success' },
       user: {
-        name: 'Thái Đình Khả',
+        name: 'Watch 5',
         new: true,
         registered: 'Jan 1, 2021',
       },
-      username: { name: 'Kha123Spain', flag: cifEs },
-      usage: {
-        value: 22,
-        period: 'Jun 11, 2021 - Jul 10, 2021',
-        color: 'primary',
-      },
-      payment: { name: 'Silver', icon: cibCcApplePay },
-      activity: 'Last week',
+      id: '123456789',
+      cost: '250$',
+      quan: '50',
+      price: '500$',
     },
     {
       avatar: { src: avatar6, status: 'danger' },
       user: {
-        name: 'Thái Đình Khả',
+        name: 'Watch 6',
         new: true,
         registered: 'Jan 1, 2021',
       },
-      username: { name: 'Kha123Poland', flag: cifPl },
-      usage: {
-        value: 43,
-        period: 'Jun 11, 2021 - Jul 10, 2021',
-        color: 'success',
-      },
-      payment: { name: 'Silver', icon: cibCcAmex },
-      activity: 'Last week',
+      id: '123456789',
+      cost: '250$',
+      quan: '60',
+      price: '300$',
     },
   ]
   return (
     <CRow>
-        <CRow>
-                <CCol sm={6}>
-                    {/* Branch dropdown button */}
-                    <CRow>
-                    <CCol className="col-md-auto">
-                    <select className="form-select" style={{width: '120px'}} aria-label="Default select example">
-                        <option selected>All Branch</option>
-                        <option value="1">Branch 1</option>
-                        <option value="2">Branch 2</option>
-                        <option value="3">Branch 3</option>
-                        <option value="4">Branch 4</option>
-                    </select>
-                    </CCol>
-                    <CCol className="col-md-auto">
-                    <select className="form-select" style={{width: '140px'}} aria-label="Default select example">
-                        <option selected>All Products</option>
-                        <option value="1">Rings</option>
-                        <option value="2">Necklaces</option>
-                        <option value="3">Watches</option>
-                        <option value="4">Handbags</option>
-                    </select>
-                    </CCol>
-                    {/* Revenue dropdown button */}
-                    </CRow>
-                    {/* <h4 id="traffic" className="card-title mb-0">
-                    Products Sold
-                    </h4> */}
-                    {/* <div className="small text-medium-emphasis">January - July 2021</div> */}
-                </CCol>
-                {/* <CCol sm={1} className="gy-2" >
-                    <p style={{marginLeft:"30px"}}>From</p>
-                </CCol>
-                <CCol sm={2} className="d-none d-md-block">
-                    <Form.Group>
-                    <Form.Control type="date" /></Form.Group>
-                </CCol>
-                <CCol sm={1} className="gy-2" >
-                    <p style={{marginLeft:"50px"}}>To</p>
-                </CCol>
-                <CCol sm={2} className="d-none d-md-block">
-                    <Form.Group>
-                    <Form.Control type="date" /></Form.Group>
-                </CCol> */}
-                </CRow>
         <CCol xs>
           <CCard className="mb-4">
             <CCardHeader>
                 <CRow>
-                <CCol sm={6}>
-                    {/* Branch dropdown button */}
-                    <CRow>
-                    <CCol className="col-md-auto">
-                    <select className="form-select" style={{width: '120px'}} aria-label="Default select example">
-                        <option selected>All Branch</option>
-                        <option value="1">Branch 1</option>
-                        <option value="2">Branch 2</option>
-                        <option value="3">Branch 3</option>
-                        <option value="4">Branch 4</option>
-                    </select>
+                    <CCol className='col-md-auto'>
+                        {/* Branch dropdown button */}
+                        <CRow>
+                        <CCol className="col-md-auto">
+                        <select className="form-select" style={{width: '120px'}} aria-label="Default select example">
+                            <option selected>All Branch</option>
+                            <option value="1">Branch 1</option>
+                            <option value="2">Branch 2</option>
+                            <option value="3">Branch 3</option>
+                            <option value="4">Branch 4</option>
+                        </select>
+                        </CCol>
+                        <CCol className="col-md-auto">
+                        <select className="form-select" style={{width: '140px'}} aria-label="Default select example">
+                            <option selected>All Products</option>
+                            <option value="1">Rings</option>
+                            <option value="2">Necklaces</option>
+                            <option value="3">Watches</option>
+                            <option value="4">Handbags</option>
+                        </select>
+                        </CCol>
+                        <CCol className="col-md-auto">
+                            <CButton style={{backgroundColor:"#656565", borderColor:"#656565"}}>
+                                <CIcon icon={cilLibraryAdd} /> New Product
+                            </CButton>
+                        </CCol>
+                        </CRow>
                     </CCol>
-                    <CCol className="col-md-auto">
-                    <select className="form-select" style={{width: '140px'}} aria-label="Default select example">
-                        <option selected>All Products</option>
-                        <option value="1">Rings</option>
-                        <option value="2">Necklaces</option>
-                        <option value="3">Watches</option>
-                        <option value="4">Handbags</option>
-                    </select>
+                    <CCol></CCol>
+                    <CCol className='col-md-auto'>
+                        <CRow>
+                            <CCol className='col-md-auto'>
+                                <CFormInput style={{width:120}} placeholder="Name" aria-label="First name"/>
+                            </CCol>
+                            <CCol className='col-md-auto'>
+                                <CFormInput style={{width:120}} placeholder="Id" aria-label="Last name"/>
+                            </CCol>
+                            <CCol className="col-md-auto">
+                                <CButton style={{backgroundColor:"#656565", borderColor:"#656565"}}>
+                                    <CIcon icon={cilFilterSquare} /> Filter
+                                </CButton>
+                            </CCol>
+                        </CRow>
                     </CCol>
-                    {/* Revenue dropdown button */}
-                    </CRow>
-                    {/* <h4 id="traffic" className="card-title mb-0">
-                    Products Sold
-                    </h4> */}
-                    {/* <div className="small text-medium-emphasis">January - July 2021</div> */}
-                </CCol>
-                {/* <CCol sm={1} className="gy-2" >
-                    <p style={{marginLeft:"30px"}}>From</p>
-                </CCol>
-                <CCol sm={2} className="d-none d-md-block">
-                    <Form.Group>
-                    <Form.Control type="date" /></Form.Group>
-                </CCol>
-                <CCol sm={1} className="gy-2" >
-                    <p style={{marginLeft:"50px"}}>To</p>
-                </CCol>
-                <CCol sm={2} className="d-none d-md-block">
-                    <Form.Group>
-                    <Form.Control type="date" /></Form.Group>
-                </CCol> */}
                 </CRow>
                 </CCardHeader>
             <CCardBody>
@@ -281,9 +219,9 @@ const Navs = () => {
                   <CTableRow>
                     <CTableHeaderCell>Name</CTableHeaderCell>
                     <CTableHeaderCell>ID</CTableHeaderCell>
-                    <CTableHeaderCell>Point to next rank</CTableHeaderCell>
-                    <CTableHeaderCell className="text-center">Rank</CTableHeaderCell>
-                    <CTableHeaderCell className="text-center">Total Spending</CTableHeaderCell>
+                    <CTableHeaderCell className="text-center">In Stock</CTableHeaderCell>
+                    <CTableHeaderCell className="text-center">Cost Price</CTableHeaderCell>
+                    <CTableHeaderCell className="text-center">Sell Price</CTableHeaderCell>
                     <CTableHeaderCell className="text-center">Edit</CTableHeaderCell>
                   </CTableRow>
                 </CTableHead>
@@ -292,30 +230,14 @@ const Navs = () => {
                     <CTableRow v-for="item in tableItems" key={index}>
                       <CTableDataCell>
                         <div>{item.user.name}</div>
-                        <div className="small text-medium-emphasis">
-                          <span>{item.user.new ? 'New' : 'Recurring'}</span> | Registered:{' '}
-                          {item.user.registered}
-                        </div>
                       </CTableDataCell>
-                      <CTableDataCell>{item.username.name}
+                      <CTableDataCell>{item.id}
                       </CTableDataCell>
-                      <CTableDataCell>
-                        <div className="clearfix">
-                          <div className="float-start">
-                            <strong style={{marginRight:'10px'}}>{item.usage.value}%</strong>
-                          </div>
-                          {/* <div className="float-end">
-                            <small className="text-medium-emphasis">{item.usage.period}</small>
-                          </div> */}
-                        </div>
-                        <CProgress thin color={item.usage.color} value={item.usage.value} />
+                      <CTableDataCell className="text-center">{item.quan}
                       </CTableDataCell>
-                      <CTableDataCell className="text-center">
-                        <strong>{item.payment.name}</strong>
+                      <CTableDataCell className="text-center">{item.cost}
                       </CTableDataCell>
-                      <CTableDataCell className="text-center">
-                        <strong>300$</strong>
-                      </CTableDataCell>
+                      <CTableDataCell className="text-center">{item.price}</CTableDataCell>
                       <CTableDataCell className="text-center">
                           <CIcon style={{color:"#1ab6d9", cursor: 'pointer', marginRight:'10px'}} icon={cilPencil} />
                           <CIcon style={{color:"red", cursor: 'pointer'}} icon={cilTrash} />
