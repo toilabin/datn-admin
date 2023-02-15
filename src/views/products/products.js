@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 import {
   CAvatar,
@@ -23,7 +23,7 @@ import {
 import { CChartLine } from '@coreui/react-chartjs'
 import { getStyle, hexToRgba } from '@coreui/utils'
 import CIcon from '@coreui/icons-react'
-import { Form, Link } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import {
   cibCcAmex,
   cibCcApplePay,
@@ -58,12 +58,14 @@ import avatar3 from 'src/assets/images/avatars/blank.jpg'
 import avatar4 from 'src/assets/images/avatars/blank.jpg'
 import avatar5 from 'src/assets/images/avatars/blank.jpg'
 import avatar6 from 'src/assets/images/avatars/blank.jpg'
-import { Row, Col, Container, Image, Button } from 'react-bootstrap'
+import { Modal, Button, Form, Table } from 'react-bootstrap'
 import WidgetsBrand from '../widgets/WidgetsBrand'
 import WidgetsDropdown from '../widgets/WidgetsDropdown'
 
 const Navs = () => {
   const random = (min, max) => Math.floor(Math.random() * (max - min + 1) + min)
+
+  const [modalShow, setModalShow] = useState(false);
 
   const progressExample = [
     { title: 'Visits', value: '29.703 Users', percent: 40, color: 'success' },
@@ -163,6 +165,47 @@ const Navs = () => {
   ]
   return (
     <CRow>
+        <Modal
+          show={modalShow}
+          onHide={() => setModalShow(false)}
+          backdrop="static"
+          keyboard={false}
+        >
+          <Modal.Header closeButton>
+            <Modal.Title>Add new product</Modal.Title>
+          </Modal.Header>
+          <Modal.Body>
+            <Form>
+              <Form.Group className="mb-3">
+                <Form.Label>Product name</Form.Label>
+                <Form.Control placeholder="Enter product name" />
+              </Form.Group>
+
+              <Form.Group className="mb-3">
+                <Form.Label>Product price</Form.Label>
+                <Form.Control placeholder="Enter product price" />
+              </Form.Group>
+              <Form.Group className="mb-3">
+                <Form.Label>Quantity</Form.Label>
+                <Form.Control placeholder="Enter product quantity" />
+              </Form.Group>
+              <Form.Group className="mb-3">
+                <Form.Label>Product Image</Form.Label>
+                <Form.Control type="file"/>
+              </Form.Group>
+              <Button variant="primary" type="submit">
+                Create new product
+              </Button>
+            </Form>
+          </Modal.Body>
+          <Modal.Footer>
+            <Button variant="secondary" onClick={() => setModalShow(false)}>
+              Close
+            </Button>
+            <Button variant="primary">Accept</Button>
+          </Modal.Footer>
+        </Modal>
+
         <CCol xs>
           <CCard className="mb-4">
             <CCardHeader>
@@ -189,7 +232,7 @@ const Navs = () => {
                         </select>
                         </CCol>
                         <CCol className="col-md-auto">
-                            <CButton style={{backgroundColor:"#656565", borderColor:"#656565"}}>
+                            <CButton onClick={() => setModalShow(true)} style={{backgroundColor:"#656565", borderColor:"#656565"}}>
                                 <CIcon icon={cilLibraryAdd} /> New Product
                             </CButton>
                         </CCol>
