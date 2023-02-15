@@ -45,6 +45,7 @@ import {
   cilUserFemale,
   cilPencil,
   cilTrash,
+  cilObjectGroup,
 } from '@coreui/icons'
 
 import avatar1 from 'src/assets/images/avatars/blank.jpg'
@@ -54,8 +55,8 @@ import avatar4 from 'src/assets/images/avatars/blank.jpg'
 import avatar5 from 'src/assets/images/avatars/blank.jpg'
 import avatar6 from 'src/assets/images/avatars/blank.jpg'
 import { Row, Col, Container, Image, Button } from 'react-bootstrap'
-import WidgetsBrand from '../../widgets/WidgetsBrand'
-import WidgetsDropdown from '../../widgets/WidgetsDropdown'
+import WidgetsBrand from '../widgets/WidgetsBrand'
+import WidgetsDropdown from '../widgets/WidgetsDropdown'
 
 const Navs = () => {
   const random = (min, max) => Math.floor(Math.random() * (max - min + 1) + min)
@@ -182,18 +183,104 @@ const Navs = () => {
   ]
   return (
     <CRow>
+        <CRow>
+                <CCol sm={6}>
+                    {/* Branch dropdown button */}
+                    <CRow>
+                    <CCol className="col-md-auto">
+                    <select className="form-select" style={{width: '120px'}} aria-label="Default select example">
+                        <option selected>All Branch</option>
+                        <option value="1">Branch 1</option>
+                        <option value="2">Branch 2</option>
+                        <option value="3">Branch 3</option>
+                        <option value="4">Branch 4</option>
+                    </select>
+                    </CCol>
+                    <CCol className="col-md-auto">
+                    <select className="form-select" style={{width: '140px'}} aria-label="Default select example">
+                        <option selected>All Products</option>
+                        <option value="1">Rings</option>
+                        <option value="2">Necklaces</option>
+                        <option value="3">Watches</option>
+                        <option value="4">Handbags</option>
+                    </select>
+                    </CCol>
+                    {/* Revenue dropdown button */}
+                    </CRow>
+                    {/* <h4 id="traffic" className="card-title mb-0">
+                    Products Sold
+                    </h4> */}
+                    {/* <div className="small text-medium-emphasis">January - July 2021</div> */}
+                </CCol>
+                {/* <CCol sm={1} className="gy-2" >
+                    <p style={{marginLeft:"30px"}}>From</p>
+                </CCol>
+                <CCol sm={2} className="d-none d-md-block">
+                    <Form.Group>
+                    <Form.Control type="date" /></Form.Group>
+                </CCol>
+                <CCol sm={1} className="gy-2" >
+                    <p style={{marginLeft:"50px"}}>To</p>
+                </CCol>
+                <CCol sm={2} className="d-none d-md-block">
+                    <Form.Group>
+                    <Form.Control type="date" /></Form.Group>
+                </CCol> */}
+                </CRow>
         <CCol xs>
           <CCard className="mb-4">
-            <CCardHeader>Customers {' & '} Sales</CCardHeader>
+            <CCardHeader>
+                <CRow>
+                <CCol sm={6}>
+                    {/* Branch dropdown button */}
+                    <CRow>
+                    <CCol className="col-md-auto">
+                    <select className="form-select" style={{width: '120px'}} aria-label="Default select example">
+                        <option selected>All Branch</option>
+                        <option value="1">Branch 1</option>
+                        <option value="2">Branch 2</option>
+                        <option value="3">Branch 3</option>
+                        <option value="4">Branch 4</option>
+                    </select>
+                    </CCol>
+                    <CCol className="col-md-auto">
+                    <select className="form-select" style={{width: '140px'}} aria-label="Default select example">
+                        <option selected>All Products</option>
+                        <option value="1">Rings</option>
+                        <option value="2">Necklaces</option>
+                        <option value="3">Watches</option>
+                        <option value="4">Handbags</option>
+                    </select>
+                    </CCol>
+                    {/* Revenue dropdown button */}
+                    </CRow>
+                    {/* <h4 id="traffic" className="card-title mb-0">
+                    Products Sold
+                    </h4> */}
+                    {/* <div className="small text-medium-emphasis">January - July 2021</div> */}
+                </CCol>
+                {/* <CCol sm={1} className="gy-2" >
+                    <p style={{marginLeft:"30px"}}>From</p>
+                </CCol>
+                <CCol sm={2} className="d-none d-md-block">
+                    <Form.Group>
+                    <Form.Control type="date" /></Form.Group>
+                </CCol>
+                <CCol sm={1} className="gy-2" >
+                    <p style={{marginLeft:"50px"}}>To</p>
+                </CCol>
+                <CCol sm={2} className="d-none d-md-block">
+                    <Form.Group>
+                    <Form.Control type="date" /></Form.Group>
+                </CCol> */}
+                </CRow>
+                </CCardHeader>
             <CCardBody>
               <CTable align="middle" className="mb-0 border" hover responsive>
                 <CTableHead color="light">
                   <CTableRow>
-                    <CTableHeaderCell className="text-center">
-                      <CIcon icon={cilPeople} />
-                    </CTableHeaderCell>
-                    <CTableHeaderCell>Customer&apos;s Name</CTableHeaderCell>
-                    <CTableHeaderCell>UserName</CTableHeaderCell>
+                    <CTableHeaderCell>Name</CTableHeaderCell>
+                    <CTableHeaderCell>ID</CTableHeaderCell>
                     <CTableHeaderCell>Point to next rank</CTableHeaderCell>
                     <CTableHeaderCell className="text-center">Rank</CTableHeaderCell>
                     <CTableHeaderCell className="text-center">Total Spending</CTableHeaderCell>
@@ -203,9 +290,6 @@ const Navs = () => {
                 <CTableBody>
                   {tableExample.map((item, index) => (
                     <CTableRow v-for="item in tableItems" key={index}>
-                      <CTableDataCell className="text-center">
-                        <CAvatar size="md" src={item.avatar.src} status={item.avatar.status} />
-                      </CTableDataCell>
                       <CTableDataCell>
                         <div>{item.user.name}</div>
                         <div className="small text-medium-emphasis">
@@ -219,7 +303,6 @@ const Navs = () => {
                         <div className="clearfix">
                           <div className="float-start">
                             <strong style={{marginRight:'10px'}}>{item.usage.value}%</strong>
-                            <Link>Detail</Link>
                           </div>
                           {/* <div className="float-end">
                             <small className="text-medium-emphasis">{item.usage.period}</small>

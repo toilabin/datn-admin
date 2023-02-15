@@ -24,6 +24,9 @@ const Tooltips = React.lazy(() => import('./views/base/tooltips/Tooltips'))
 const Customers = React.lazy(() => import('./views/users/customers/Customers'))
 const Employees = React.lazy(() => import('./views/users/employees/Employees'))
 
+//Product
+const Products = React.lazy(() => import('./views/products/products'))
+
 //Offers
 const Vouchers = React.lazy(() => import('./views/offers/vouchers'))
 const Discounts = React.lazy(() => import('./views/offers/discounts'))
@@ -44,7 +47,7 @@ const Layout = React.lazy(() => import('./views/forms/layout/Layout'))
 const Range = React.lazy(() => import('./views/forms/range/Range'))
 const Select = React.lazy(() => import('./views/forms/select/Select'))
 const Validation = React.lazy(() => import('./views/forms/validation/Validation'))
-const Sales = React.lazy(() => import('./views/charts/Sales'))
+const Sales = React.lazy(() => import('./views/sales/Sales'))
 
 // Icons
 const CoreUIIcons = React.lazy(() => import('./views/icons/coreui-icons/CoreUIIcons'))
@@ -85,6 +88,7 @@ const routes = [
   { path: '/buttons/dropdowns', name: 'Dropdowns', element: Dropdowns },
   { path: '/buttons/button-groups', name: 'Button Groups', element: ButtonGroups },
   { path: '/sales', name: 'Sales', element: Sales },
+  { path: '/products', name: 'Products', element: Products },
   { path: '/customers', name: 'Customers', element: Customers },
   { path: '/employees', name: 'Employees', element: Employees },
   { path: '/vouchers', name: 'Vouchers', element: Vouchers },
