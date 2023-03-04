@@ -193,16 +193,16 @@ const Navs = () => {
                 <Form.Label>Product Image</Form.Label>
                 <Form.Control type="file"/>
               </Form.Group>
-              <Button variant="primary" type="submit">
+              {/* <Button variant="primary" type="submit">
                 Create new product
-              </Button>
+              </Button> */}
             </Form>
           </Modal.Body>
           <Modal.Footer>
             <Button variant="secondary" onClick={() => setModalShow(false)}>
               Close
             </Button>
-            <Button variant="primary">Accept</Button>
+            <Button variant="primary">Save</Button>
           </Modal.Footer>
         </Modal>
 
@@ -232,8 +232,11 @@ const Navs = () => {
                         </select>
                         </CCol>
                         <CCol className="col-md-auto">
-                            <CButton onClick={() => setModalShow(true)} style={{backgroundColor:"#656565", borderColor:"#656565"}}>
+                            <CButton onClick={() => setModalShow(true)} style={{backgroundColor:"#656565", borderColor:"#656565", marginRight:10}}>
                                 <CIcon icon={cilLibraryAdd} /> New Product
+                            </CButton>
+                            <CButton style={{backgroundColor:"#656565", borderColor:"#656565"}}>
+                                <CIcon icon={cilLibraryAdd} /> Import by Excel file
                             </CButton>
                         </CCol>
                         </CRow>

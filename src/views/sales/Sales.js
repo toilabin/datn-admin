@@ -63,7 +63,7 @@ const Charts = () => {
                   <select className="form-select" style={{width: '165px'}} aria-label="Default select example">
                       <option selected>Total Revenue</option>
                       <option value="1">Products Sold</option>
-                      <option value="2">New Customers</option>
+                      <option value="2">Customers Number</option>
                       <option value="3">Total Customers</option>
                   </select>
                   </CCol>
@@ -97,12 +97,11 @@ const Charts = () => {
                 <Form.Group>
                   <Form.Control type="date" /></Form.Group>
               </CCol>
-
             </CRow>
             <CChartLine
               style={{ height: '300px', marginTop: '40px' }}
               data={{
-                labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+                labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August','September', 'October', 'November', 'December'],
                 datasets: [
                   {
                     label: 'My First dataset',
@@ -118,34 +117,44 @@ const Charts = () => {
                       random(50, 200),
                       random(50, 200),
                       random(50, 200),
+                      random(50, 200),
+                      random(50, 200),
+                      random(50, 200),
+                      random(50, 200),
+                      random(50, 200),
                     ],
                     fill: true,
                   },
-                  {
-                    label: 'My Second dataset',
-                    backgroundColor: 'transparent',
-                    borderColor: getStyle('--cui-success'),
-                    pointHoverBackgroundColor: getStyle('--cui-success'),
-                    borderWidth: 2,
-                    data: [
-                      random(50, 200),
-                      random(50, 200),
-                      random(50, 200),
-                      random(50, 200),
-                      random(50, 200),
-                      random(50, 200),
-                      random(50, 200),
-                    ],
-                  },
-                  {
-                    label: 'My Third dataset',
-                    backgroundColor: 'transparent',
-                    borderColor: getStyle('--cui-danger'),
-                    pointHoverBackgroundColor: getStyle('--cui-danger'),
-                    borderWidth: 1,
-                    borderDash: [8, 5],
-                    data: [65, 65, 65, 65, 65, 65, 65],
-                  },
+                  // {
+                  //   label: 'My Second dataset',
+                  //   backgroundColor: 'transparent',
+                  //   borderColor: getStyle('--cui-success'),
+                  //   pointHoverBackgroundColor: getStyle('--cui-success'),
+                  //   borderWidth: 2,
+                  //   data: [
+                  //     random(50, 200),
+                  //     random(50, 200),
+                  //     random(50, 200),
+                  //     random(50, 200),
+                  //     random(50, 200),
+                  //     random(50, 200),
+                  //     random(50, 200),
+                  //     random(50, 200),
+                  //     random(50, 200),
+                  //     random(50, 200),
+                  //     random(50, 200),
+                  //     random(50, 200),
+                  //   ],
+                  // },
+                  // {
+                  //   label: 'My Third dataset',
+                  //   backgroundColor: 'transparent',
+                  //   borderColor: getStyle('--cui-danger'),
+                  //   pointHoverBackgroundColor: getStyle('--cui-danger'),
+                  //   borderWidth: 1,
+                  //   borderDash: [8, 5],
+                  //   data: [65, 65, 65, 65, 65, 65, 65, 80, 80, 80, 90, 46],
+                  // },
                 ],
               }}
               options={{
@@ -192,12 +201,12 @@ const Charts = () => {
           <CCardBody>
             <CChartBar
               data={{
-                labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+                labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August','September', 'October', 'November', 'December'],
                 datasets: [
                   {
                     label: 'Products sold',
                     backgroundColor: '#f87979',
-                    data: [40, 20, 12, 39, 10, 40, 39, 80, 40],
+                    data: [40, 20, 12, 39, 10, 40, 39, 80, 40, 50, 60, 70],
                   },
                 ],
               }}
@@ -212,12 +221,12 @@ const Charts = () => {
           <CCardBody>
             <CChartPie
               data={{
-                labels: ['Red', 'Green', 'Yellow'],
+                labels: ['January - March', 'April - June', 'July - September', 'October - December'],
                 datasets: [
                   {
-                    data: [300, 50, 100],
-                    backgroundColor: ['#FF6384', '#36A2EB', '#FFCE56'],
-                    hoverBackgroundColor: ['#FF6384', '#36A2EB', '#FFCE56'],
+                    data: [30, 50, 40, 35],
+                    backgroundColor: ['#FF6384', '#36A2EB', '#FFCE56', '#5F8755'],
+                    hoverBackgroundColor: ['#FF6384', '#36A2EB', '#FFCE56', '#5F8755'],
                   },
                 ],
               }}

@@ -166,8 +166,8 @@ const Navs = () => {
       </CForm>
       </CCol>
       <CCol align = "center"> 
-      <CButton>Save</CButton> 
-      <CButton>Cancel</CButton></CCol>
+      <CButton style={{marginRight:20, marginTop:30}}>Save</CButton> 
+      <CButton style={{marginTop:30, backgroundColor:"#656565", borderColor:"#656565"}}>Cancel</CButton></CCol>
     </CRow>
   )
 }

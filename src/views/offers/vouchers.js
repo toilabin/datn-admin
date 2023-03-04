@@ -1,9 +1,11 @@
 import React from 'react'
+import { Form} from 'react-bootstrap'
 import {
   CButton,
   CButtonGroup,
   CRow,
   CCol,
+  CFormInput,
   CCard,
   CCardBody,
   CCardHeader,
@@ -27,6 +29,7 @@ import Paper from '@mui/material/Paper';
 import Checkbox from '@mui/material/Checkbox';
 import CIcon from '@coreui/icons-react';
 import { DocsExample } from 'src/components'
+import { cilLibrary } from '@coreui/icons';
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
@@ -51,19 +54,31 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
 const Navs = () => {
   return (
     <CRow>
-      <CButtonGroup aria-label="Basic example">
+      <CButtonGroup aria-label="Basic example" style={{marginBottom:10}}>
           <CButton variant="secondary">All</CButton>
           <CButton variant="secondary">On promotion</CButton>
           <CButton variant="secondary">Coming promotion</CButton>
           <CButton variant="secondary">Not activated</CButton>
           <CButton variant="secondary">Stop promotion</CButton>
         </CButtonGroup>
-       <CButtonGroup aria-label="Basic example">
-          <CButton variant = "outline">ID</CButton>
-          <CButton variant = "outline">Since</CButton>
-          <CButton variant = "outline">To date</CButton>
-          <CButton variant = "outline">Program</CButton>
-          <CCol className="col-md-auto" variant = "outline">
+       <CButtonGroup style={{marginBottom:10}} aria-label="Basic example">
+          <CFormInput style={{width:200}} placeholder="ID" aria-label="First name"/>
+          <CCol sm={1} className="gy-2" >
+                <p style={{marginLeft:"30px"}}>From</p>
+              </CCol>
+              <CCol sm={2} className="d-none d-md-block">
+                <Form.Group>
+                  <Form.Control type="date" /></Form.Group>
+              </CCol>
+              <CCol sm={1} className="gy-2" >
+                <p style={{marginLeft:"50px"}}>To</p>
+              </CCol>
+              <CCol sm={2} className="d-none d-md-block">
+                <Form.Group>
+                  <Form.Control type="date" /></Form.Group>
+              </CCol>
+          <CFormInput style={{marginLeft:10, marginRight:10, width:200}} placeholder="Name's Program" aria-label="First name"/>
+          <CCol className="col-md-auto" variant = "outline" style={{marginLeft:10, marginRight:10}}>
                   <select className="form-select"  aria-label="Default select example">
                       <option selected>Status</option>
                       <option value="1">Branch 1</option>
@@ -77,24 +92,19 @@ const Navs = () => {
           
         </CButtonGroup>
         <CCol className="col-md-auto">
-                  <select className="form-select"  aria-label="Default select example">
-                      <option selected>Add promotion</option>
-                      <option value="1">Branch 1</option>
-                      <option value="2">Branch 2</option>
-                      <option value="3">Branch 3</option>
-                      <option value="4">Branch 4</option>
-                  </select>
-                  </CCol>
+            <CButton style={{backgroundColor:"#656565", borderColor:"#656565"}}>
+                <CIcon icon={cilLibrary} /> Import by Excel file
+          </CButton>
+        </CCol>
         <CCol className="col-md-auto">
                   <select className="form-select"  aria-label="Default select example">
                       <option selected>Manipulation</option>
-                      <option value="1">Branch 1</option>
-                      <option value="2">Branch 2</option>
-                      <option value="3">Branch 3</option>
-                      <option value="4">Branch 4</option>
+                      <option value="1">Detail</option>
+                      <option value="2">Edit</option>
+                      <option value="3">Delete</option>
                   </select>
                   </CCol>
-      <CCol className="col-md-auto"> <CButton  variant="contained">  Discount setting</CButton></CCol>
+      <CCol style={{marginBottom:10}} className="col-md-auto"> <CButton  variant="contained">  Discount setting</CButton></CCol>
       <CCol><Checkbox></Checkbox> Apply voucher before apply discount</CCol>
       <TableContainer component={Paper}>
       <Table sx={{ minWidth: 700 }} aria-label="customized table">

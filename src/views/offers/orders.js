@@ -1,9 +1,11 @@
 import React from 'react'
+import { Form} from 'react-bootstrap'
 import {
   CButton,
   CButtonGroup,
   CRow,
   CCol,
+  CFormInput,
   CCard,
   CCardBody,
   CCardHeader,
@@ -27,6 +29,7 @@ import Paper from '@mui/material/Paper';
 import Checkbox from '@mui/material/Checkbox';
 import CIcon from '@coreui/icons-react';
 import { DocsExample } from 'src/components'
+import { cilFilterSquare } from '@coreui/icons';
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
@@ -51,24 +54,42 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
 const Navs = () => {
   return (
     <CRow>
-       <CButtonGroup aria-label="Basic example">
-          <CButton variant = "outline">Order ID</CButton>
-          <CButton variant = "outline">Order day</CButton>
-          <CButton variant = "outline">Price</CButton>
-          <CCol className="col-md-auto" variant = "outline">
+       <CButtonGroup style={{marginBottom:10}} aria-label="Basic example">
+          <CFormInput style={{width:180, marginRight:10}} placeholder="ID" aria-label="First name"/>
+          <CCol sm={1} className="gy-2" >
+                <p style={{marginLeft:"30px"}}>From</p>
+              </CCol>
+              <CCol sm={2} className="d-none d-md-block">
+                <Form.Group>
+                  <Form.Control type="date" /></Form.Group>
+              </CCol>
+              <CCol sm={1} className="gy-2" >
+                <p style={{marginLeft:"50px"}}>To</p>
+              </CCol>
+              <CCol sm={2} style={{marginRight:10}} className="d-none d-md-block">
+                <Form.Group>
+                  <Form.Control type="date" /></Form.Group>
+              </CCol>
+              <CFormInput style={{marginRight:10}} placeholder="Price" aria-label="First name"/>
+          <CCol style={{marginRight:10}} className="col-md-auto" variant = "outline">
                   <select className="form-select"  aria-label="Default select example">
                       <option selected>Checkout type</option>
-                      <option value="1">Branch 1</option>
-                      <option value="2">Branch 2</option>
-                      <option value="3">Branch 3</option>
-                      <option value="4">Branch 4</option>
+                      <option value="1">MOMO</option>
+                      <option value="2">VNPAY</option>
+                      <option value="3">VISA</option>
+                      <option value="4">COD</option>
                   </select>
                   
                   </CCol>
-                  <CButton variant = "outline"> Filter</CButton>
+                  <CCol className="col-md-auto">
+                    <CButton style={{backgroundColor:"#656565", borderColor:"#656565"}}>
+                      <CIcon icon={cilFilterSquare} /> Filter
+                    </CButton>
+                  </CCol>
+                  
           
         </CButtonGroup>
-        <CCol className="col-md-auto">
+        {/* <CCol className="col-md-auto">
                   <select className="form-select"  aria-label="Default select example">
                       <option selected>Manipulation</option>
                       <option value="1">Branch 1</option>
@@ -76,7 +97,7 @@ const Navs = () => {
                       <option value="3">Branch 3</option>
                       <option value="4">Branch 4</option>
                   </select>
-                  </CCol>
+                  </CCol> */}
       <TableContainer component={Paper}>
       <Table sx={{ minWidth: 700 }} aria-label="customized table">
         <TableHead>

@@ -180,39 +180,39 @@ const Navs = () => {
               <tbody>
                 <tr>
                   <td>Mon</td>
-                  <td>Emp1</td>
-                  <td>Emp2</td>
-                  <td>Emp3</td>
+                  <td>-</td>
+                  <td>-</td>
+                  <td>-</td>
                 </tr>
                 <tr>
                   <td>Tue</td>
-                  <td>Emp1</td>
-                  <td>Emp2</td>
-                  <td>Emp3</td>
+                  <td>-</td>
+                  <td>-</td>
+                  <td>-</td>
                 </tr>
                 <tr>
                   <td>Wed</td>
-                  <td>Emp1</td>
-                  <td>Emp2</td>
-                  <td>Emp3</td>
+                  <td>-</td>
+                  <td>-</td>
+                  <td>-</td>
                 </tr>
                 <tr>
                   <td>Thu</td>
-                  <td>Emp1</td>
-                  <td>Emp2</td>
-                  <td>Emp3</td>
+                  <td>-</td>
+                  <td>-</td>
+                  <td>-</td>
                 </tr>
                 <tr>
                   <td>Fri</td>
-                  <td>Emp1</td>
-                  <td>Emp2</td>
-                  <td>Emp3</td>
+                  <td>-</td>
+                  <td>-</td>
+                  <td>-</td>
                 </tr>
                 <tr>
                   <td>Sat</td>
-                  <td>Emp1</td>
-                  <td>Emp2</td>
-                  <td>Emp3</td>
+                  <td>-</td>
+                  <td>-</td>
+                  <td>-</td>
                 </tr>
               </tbody>
             </Table>
